@@ -1,0 +1,236 @@
+%-------------------------------------------------------------------------------
+%                      Template Naskah Skripsi
+%               	Berdasarkan format JTETI FT UGM
+% 						(c) @gunturdputra 2014
+%-------------------------------------------------------------------------------
+
+%Template pembuatan naskah skripsi.
+\documentclass{jtetiskripsi}
+
+%Untuk prefiks pada daftar gambar dan tabel
+\usepackage[titles]{tocloft}
+\renewcommand\cftfigpresnum{Gambar\  }
+\renewcommand\cfttabpresnum{Tabel\   }
+
+%Untuk hyperlink dan table of content
+\usepackage{hyperref}
+\newlength{\mylenf}
+\settowidth{\mylenf}{\cftfigpresnum}
+\setlength{\cftfignumwidth}{\dimexpr\mylenf+2em}
+\setlength{\cfttabnumwidth}{\dimexpr\mylenf+2em}
+
+%Untuk Bold Face pada Keterangan Gambar
+\usepackage[labelfont=bf]{caption}
+
+%Untuk caption dan subcaption
+\usepackage{caption}
+\usepackage{subcaption}
+
+%pdf
+\usepackage{pdfpages}
+
+%table
+\usepackage{graphics}
+
+\usepackage{wrapfig}
+
+%-----------------------------------------------------------------
+%Disini awal masukan untuk data proposal skripsi
+%-----------------------------------------------------------------
+\titleind{PERANCANGAN APLIKASI SISTEM INFORMASI MANAJEMEN PROGRAM KERJA OPMAWA FMIPA UNIVERSITAS NEGERI JAKARTA}
+
+\fullname{Maulana Rahman Nur}
+
+\idnum{3145151011}
+
+\approvaldate{26 Juni 2018}
+
+\degree{Sarjana Ilmu Komputer}
+
+\yearsubmit{2018}
+
+\program{Ilmu Komputer}
+
+\dept{Ilmu Komputer}
+
+\firstsupervisor{Drs. Mulyono, M.Kom.}
+\firstnip{196605171994031003}
+
+\secondsupervisor{Ratna Widyati, S.Si, M.Kom.}
+\secondnip{197509252002122002}
+
+%hypenation
+
+\hyphenation{Al-go-rit-ma pe-san kom-pre-si di-gu-na-kan seg-men di-rep-re-sen-ta-si-kan di-kem-bang-kan di-sem-bu-nyi-kan eks-trak-si meng-gu-na-kan bi-lang-an pe-ri-o-de di-ma-suk-kan a-kan me-nga-la-mi pe-rang-kat di-pub-li-ka-si-kan di-la-ku-kan mem-be-ri-kan di-si-sip-kan }
+
+%-----------------------------------------------------------------
+%Disini akhir masukan untuk data proposal skripsi
+%-----------------------------------------------------------------
+
+\begin{document}
+
+\cover
+
+\include{pengesahan}
+%\include{persetujuan}
+\include{orisinalitas}
+
+%-----------------------------------------------------------------
+%Disini awal masukan Acknowledment
+%-----------------------------------------------------------------
+%\acknowledgment
+%TEST
+%\begin{flushright}
+%	\emph{Untuk Ayah, Mama,\\dan Adikku tercinta.}
+%\end{flushright}
+%-----------------------------------------------------------------
+%Disini awal masukan untuk Prakata
+%-----------------------------------------------------------------
+
+%\preface
+
+%Puji syukur penulis panjatkan ke hadirat Allah SWT Tuhan Yang Maha Kuasa karena hanya dengan ridha-Nya, Skripsi ini dapat terselesaikan tanpa halangan berarti. Keberhasilan dalam menyusun Skripsi ini tidak lepas dari bantuan berbagai pihak yang mana dengan tulus dan ikhlas memberikan masukan yag bermanfaat dalam proses penyusunan Skripsi ini. Jenis penelitian yang dipilih adalah kajian teori dengan judul Perancangan Aplikasi Sistem Informasi Manajemen Program Kerja OPMAWA FMIPA Universitas Negeri Jakarta.
+
+%Terima kasih penulis ucapkan kepada Bapak Drs. Mulyono, M.Kom dan Ibu Ratna Widyati, S.Si, M.Kom selaku pembimbing I dan pembimbing II yang telah memberikan banyak bantuan, bimbingan, serta arahan dalam penyelesaian tugas akhir ini. Terima kasih pula kepada Pembimbing Akademik Ibu Ria Arafiah, M.Si yang telah membimbing penulis secara akademik selama kuliah di Program Studi Ilmu Komputer UNJ. Di samping itu penghargaan penulis disampaikan ke seluruh Dosen Prodi Ilmu Komputer FMIPA UNJ yang tidak bisa disebutkan satu per satu, atas ilmu dan bimbingannya selama penulis berkuliah di Ilmu Komputer UNJ. 
+
+%Ungkapan terima kasih disampaikan kepada Ayah dan ibu yang selama ini selalu mendoakan dan memberikan dukungan kepada penulis tanpa kenal lelah untuk selama-lamanya. Penulis juga mengucapkan terimakasih kepada Evita Dwi oktaviani
+
+%Penulis menyadari bahwa penyusunan Skripsi ini jauh dari sempurna. Akhir kata, teriring permintaan maaf apabila terdapat kesalahan maupun kekeliruan dalam penulisan Skripsi ini. Besar harapan penulis agar Skripsi ini dapat bermanfaat sebagaimana mestinya. Terima kasih.
+
+%\vspace{.5cm}
+
+%\begin{tabular}{p{7.5cm}c}
+%	&Jakarta, Agustus 2019\\
+%	&\\
+%	&\\
+%	&\textbf{Penulis}
+%\end{tabular}
+
+%-----------------------------------------------------------------
+%Disini awal masukan Intisari
+%-----------------------------------------------------------------
+\begin{abstractind}
+\textbf{MAULANA RAHMAN NUR}. Perancangan Aplikasi Sistem Informasi Manajemen Program Kerja Opmawa FMIPA Universitas Negeri Jakarta . Skripsi. Fakultas Matematika dan Ilmu Pengetahuan Alam, Universitas Negeri Jakarta. 2018. Di bawah bimbingan Drs. Mulyono, M.Kom dan Ratna Widyati, S.Si, M.Kom.
+\vskip1cm
+
+	Sistem Informasi Manajemen (SIM) merupakan sebuah sistem yang dapat memberikan informasi dalam bentuk laporan dan tampilan kepada pelaku bisnis. Sistem tersebut berfungsi sebagai media yang dapat digunakan sebagai penyambung komunikasi antar pelaku bisnis. Universitas Negeri Jakarta memiliki sebuah Organisasi Mahasiswa (Ormawa) yang disebut sebagai laboratorium kecil pemerintahan dalam kampus yang dinamakan Organisasi Pemerintahan Mahasiswa (Opmawa). Opmawa merupakan sebuah organisasi yang memiliki sistem yang merupakan gambaran dari sistem pemerintahan yang ada di Indonesia. Pada penelitian ini dilakukan analisis kebutuhan berdasarkan permasalahan-permasalahan manajerial di dalam opmawa yang nantinya akan dikembangkan menjadi sebuah sistem yang dapat membantu dalam pendataan dan pengolahan data internal organisasi tersebut  .Sistem berbasis \textit{website} ini dikembangkan dengan menggunakan \textit{framework} Codeigniter yang menganut sistem \textit{Model View Controller} (MVC). Dengan sistem yang sistematis akan membantu setiap anggota dalam sebuah organisasi untuk bekerja sesuai dengan aturan-aturan yang telah ditentukan. 
+	
+	% Steganografi dapat digunakan sebagai salah satu teknik dalam pengamanan informasi. Steganografi dapat menyembunyikan \emph{file} pesan agar orang awam tidak menyadari keberadaan dari \emph{file} pesan yang disembunyikan. Salah satu metode pada steganografi adalah \emph{Least Significant Bit} (LSB). LSB melakukan penyisipan bit pesan ke dalam bit-bit \emph{file} media yang digunakan. Pada tugas akhir ini, media yang digunakan adalah \emph{file} citra \emph{digital} RGB (\emph{Red, Green} dan \emph{Blue}), dan program dikembangkan dengan menggunakan MATLAB R2016b. Steganografi diawali dengan memasukkan citra \emph{digital} yang akan digunakan, kemudian memasukkan pesan atau \emph{hiddentext} lalu proses penyisipan atau \emph{encoding} dimulai. Setelah proses \emph{encoding} berhasil, citra \emph{digital} disimpan sebagai \emph{stego image}. Untuk mendapatkan kembali pesan maka dilakukan proses \emph{decoding}. Jika proses \emph{decoding} berhasil dilakukan, maka pesan akan ditampilkan. Pada citra \emph{digital} 24 bit dan 32 bit proses penyisipan pesan berhasil dilakukan, sedangkan pada citra \emph{digital} 8 bit proses penyisipan pesan gagal dilakukan. \emph{File} citra hasil steganografi tidak mengalami perubahan yang cukup berarti dari file citra sebelumnya. Sehingga tidak akan menimbulkan kecurigaan dan keamanan pesan tetap terjaga.
+	
+	\bigskip
+	\noindent
+	\textbf{Kata kunci :} SIM, manajemen, \textit{website}, \textit{Spiral Model}, \textit{MVC}.
+\end{abstractind}
+
+\begin{abstracteng}
+\textbf{MAULANA RAHMAN NUR}. Implementation of Steganography in Digital Image with Least Significant Bit Method. Thesis. Faculty of Mathematics and Science, State University of Jakarta. Under supervised by Drs. Mulyono, M.Kom dan Ratna Widyati, S.Si, M.Kom.
+\vskip1cm
+
+	\textit{Steganography can be used as one of the techniques in information security. Steganography can combine message files so others do not know of hidden message files. One method of steganography is Least Significant Bit (LSB). LSB inserts message bits into original media files of bits. In this final project, the media is digital image RGB (Red, Green and Blue), and program was developed by using MATLAB R2016b. Steganography begins with entering a digital image that will be used, then entering a message or hiddentext then the insertion or encoding process begins. After the encoding process is successful, the digital image is stored as a stego image. To get the message back the decoding process is carried out. If the decoding process is successful, the message will be displayed. In 24 bit and 32 bit digital image, the encoding process is success, but in 8 bit digital image the process is failed. Stego Image has not significant changes from Cover Image. So it will not cause suspicion and the security of the message is safe.}    
+	
+	\bigskip
+	\noindent
+	\textbf{\emph{Keywords :}} \emph{Steganography, message, LSB, digital image}.
+\end{abstracteng}
+%-----------------------------------------------------------------
+%Disini akhir masukan Intisari
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+
+%-----------------------------------------------------------------
+%Disini akhir masukan untuk muka skripsi
+%-----------------------------------------------------------------
+
+\tableofcontents 
+\listoffigures
+%\addcontentsline{toc}{chapter}{DAFTAR ISI}
+\addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+\listoftables
+\addcontentsline{toc}{chapter}{DAFTAR TABEL}
+
+\begin{counterpage}
+\end{counterpage}
+%Disini awal masukan untuk Bab
+%-----------------------------------------------------------------
+\include{bab1}
+
+\include{bab2}
+
+\include{bab3}
+
+\addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
+
+%\include{bab4}
+
+%-----------------------------------------------------------------
+%Disini akhir masukan Bab
+%-----------------------------------------------------------------
+
+
+%-----------------------------------------------------------------
+% Disini awal masukan untuk Daftar Pustaka
+% - Daftar pustaka diambil dari file .bib yang ada pada folder ini
+%   juga.
+% - Untuk memudahkan dalam memanajemen dan menggenerate file .bib
+%   gunakan reference manager seperti Mendeley, Zotero, EndNote,
+%   dll.
+%-----------------------------------------------------------------
+%\bibliography{IEEEabrv,daftar-pustaka}
+\begin{thebibliography}{99}
+	
+	\bibitem{ahmad} Ahmad, L O I., Sinen R. 2017. "Penerapan Sistem Informasi Manajemen Pendidikan Dalam proses Pemberlajaran di SMP Negeri 21 Makassar". Idaarah. 1(2): 290-309.
+	
+	\bibitem{alshamrahi} Alshamrahi, A.,  Bahattab, A A. 2015. "A Comparison Between Three SDLC Models Waterfall, Spiral, and Incremental/Iterative Model". International Journal of Computer Science Issues. 12(1): 106-111. 
+	
+	\bibitem{amalina} Amalina, G R. 2018. "Perancangan dan Implementasi Sistem Informasi Perpustakaan Berbasis Web Pada Sekolah SMPN 198 Jakarta [skripsi]". Jakarta: Universitas Negeri Jakarta.
+	
+	\bibitem{andreea} Andreea. 2011. "The development of an electronic business based on the MySQL technology". Database Systems Journal. 2(3): 56-57.
+	
+	\bibitem{athhoillah} Athhoillah, A. 2017. “Dasar-dasar Manajemen”. Bandung: Pustaka Setia.
+	
+	\bibitem{binarso} Binarso, Y A., Sarwoko, E A., Bahtiar, N. 2012. "Pembangunan Sistem Informasi Alumi Berbasis Web Pada Program Studi Teknik Informatika Universitas Diponogoro". Journal of Informatics and Technology. 1(1): 72-84.
+	
+	\bibitem{dosen} Dosenpendidikan. 2019. “Program Kerja (pengertian, tujuan, manfaat, jenis, tahapan)”. Dosen Pendidikan [online]. Tersedia: \url{https://www.dosenpendidikan.co.id/pengertian-program-kerja-secara-umum/}. [5 September 2019].
+	
+	\bibitem{handoko} Handoko, M Y. 2019. "Perancangan Sistem Informasi Koperasi Serba Usaha Berbasis \textit{Website} Pada Lembaga Koperasi Mahasiswa Universitas Negeri Jakarta [skripsi]". Jakarta: Universitas Negeri Jakarta.
+	
+	\bibitem{hidayat} Hidayat, A., Utomo, V G. 2014.  "Implementing Code Igniter Framework in Open Source Mobile Learning Application". International Journal of Computer Applications. 108(18): 9-14.
+	
+	\bibitem{ibeng} Ibeng. 2018. “Pengertian Entity Relationship Diagram (ERD)”. Pendidikanku [online]. Tersedia: \url{https://www.pendidikanku.org/2016/07/pengertian-entity-relationship-diagram.html} . [18 Maret 2019].
+	
+	\bibitem{indrayani} Indrayani, E. 2015. "Implementation of Management Information System for Integrated Sub-district Administrative Service (Simpaten), the Need or Opportunity?". Journal of Social Sciences Research. 9(3): 1903-1910.
+	
+	\bibitem{obrien} O’Brien, J A., Marakas, G M. 2016. “Sistem Informasi Manajemen”. Jakarta: Salemba Empat.
+	
+	\bibitem{perdana} Perdana, Y. 2019. “Perancangan dan Implementasi Aplikasi Penilaian Kinerja Badan Eksekutif Mahasiswa Universitas Negeri Jakarta Berbasis Web [skripsi]”. Jakarta: Universitas Negeri Jakarta.
+	
+	\bibitem{priansa} Priansa, D J. 2018. “Manajemen Organisasi Publik”. Bandung: Pustaka Setia.
+	
+	\bibitem{rachman} Rachman, F. 2015. “Studi Keislaman: Manajemen Organisasi dan Pengorganisasian Dalam Perspektif Al-Quran dan Hadits". Ulumuna. 1(2): 292-323.
+	
+	
+	\bibitem{rifai} Rifa’I, H M D., Fadhli, M. 2013. “Manajemen Organisasi”. Bandung. Cita Pustaka Media Perintis.
+	
+	\bibitem{simajuntak} Simajuntak, P D. 2016. "Analisis Model View Controller (MVC) Pada Bahasa PHP". ISD. 2(2): 56-66. 
+	
+	\bibitem{syamsuddin} Syamsuddin. 2017. "Penerapan Fungsi-Fungsi Manajemen Dalam Meningkatkan Mutu Pendidikan". Idaarah. 1(1): 60-73.
+	
+	\bibitem{tanuwijaya} Tanuwijaya, C N. 2016. “Domain Class Diagram”. Binus University [online]. Tersedia: \url{http://sis.binus.ac.id/2016/06/20/domain-class-diagram/}. [11 September 2019].
+	
+	\bibitem{yicheng} Yicheng, L. 2011. "Development of a blog system using CodeIgniter framework [tesis]" Oulu: Oulu University of Applied Sciences.
+	
+	\bibitem{zakky} Zakky. 2018. "Pengertian Sistem Menurut Para Ahli dan Secara Umum". Zona referensi [online]. Tersedia: \url{https://www.zonareferensi.com/pengertian-sistem/}. [14 Maret 2019]. 
+		
+	
+\end{thebibliography}
+
+%-----------------------------------------------------------------
+%Disini akhir masukan Daftar Pustaka
+%-----------------------------------------------------------------
+
+
+%\include{lampiran}
+
+%\include{cv}
+
+\end{document}
