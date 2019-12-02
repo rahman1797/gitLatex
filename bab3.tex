@@ -81,7 +81,7 @@ Berikut adalah \emph{use case diagram} yang dapat digambarkan dari berbagai fitu
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.0\textwidth]{gambar/usecase}
+	\includegraphics[width=1.0\textwidth]{gambar/after_sps/usecasev2}
 	\caption{Desain \emph{Use Case Diagram} Sistem Informasi Manajemen}
 	\label{usecase_diagram}
 \end{figure}
@@ -197,3 +197,100 @@ Gambar 3.10 merupakan desain tampilan daftar program kerja yang telah direncanak
 \end{figure}
 
 Gambar 3.11 merupakan desain tampilan detail program kerja yang terdaftar. Pada tampilan ini memungkinkan \textit{user} untuk melihat tanggal pelaksanaan dan penilaian program kerja apabila telah selesai terlaksana, mengelola data-data dan keperluan lainnya pada suatu program kerja seperti mendaftarkan posisi kepanitiaan, mendaftarkan anggota opmawa yang akan terlibat dalam kepanitiaan, laporan keuangan, daftar-daftar tugas atau hal yang perlu dilakukan saat menjalankan program kerja, unduh atau unggah dokumen, dan catatan-catatan lainnya yang sekiranya diperlukan sebagai catatan maupun evaluasi yang terjadi dalam pelaksanaan program kerja.
+
+\section{Konstruksi dan Pembangunan}
+
+Tahap ini bertujuan untuk merealisasikan desain yang telah dibuat kedalam pengkodean di dalam bahasa komputer. Penulis memulainya dengan membuat \textit{database}, \textit{user interface}, dan \textit{back-end} dari sistem.
+
+\subsection{Membuat \textit{Database}}
+
+\textit{Database} yang dibuat menggunakan MySql berdasarkan desain ERD yang sudah dibuat sebelumnya. Penulis menggunakan phpMyAdmin untuk membuat tabel beserta relasi dari tabel yang terdapat di dalam aplikasi sistem informasi manajemen.
+
+Terdapat 15 tabel yang dibuat oleh penulis berdasarkan desain ERD yang telah dibuat. Berikut adalah daftar tabel yang telah dibuat dengan menggunakan phpMyAdmin.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{gambar/database_phpmyadmin}
+	\caption{\textit{Database} Sistem Informasi Manajemen Program Kerja}
+	\label{Database_phpmyadmin}
+\end{figure}
+
+\subsection{Implementasi Desain Tampilan}
+
+Pada implementasi desain tampilan, penulis menggunakan \textit{framework} Bootstrap dan menggunakan \textit{library} javascript dari jQuery. Penulis juga menggunakan pola MVC yang merupakan struktur dari \textit{framework} Codeigniter yaitu V (\textit{view}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{gambar/interface_login}
+	\caption{ Tampilan \textit{Login} Sistem Informasi Manajemen Program Kerja}
+	\label{Tampilan_login}
+\end{figure}
+
+Halaman \textit{login} adalah tampilan awal ketika pengguna akan menggunakan sistem. Pengguna diharuskan untuk mengisi \textit{form input} Nomor Induk Mahasiswa (NIM) dan \textit{password} untuk masuk ke dalam aplikasi SIM. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{gambar/interface_home}
+	\caption{ Tampilan Beranda Sistem Informasi Manajemen Program Kerja}
+	\label{Tampilan_Home}
+\end{figure}
+
+Ketika pengguna berhasil \textit{login}, selanjutnya pengguna akan diarahkan ke halaman beranda. Pada halaman beranda terdapat informasi mengenai program kerja yang telah terdaftarkan dan informasi tugas yang diberikan kepada pengguna yang bersangkutan. Pada halaman ini tersedia juga pilihan \textit{menu bar} untuk melihat data keanggotaan, program kerja, keuangan, pengarsipan berkas, dan agenda rapat. Jika pengguna \textit{login} sebagai anggota Eksekutif, maka mendapatkan menu tambahan untuk melakukan registrasi sistem seperti penambahan program studi baru, pendaftaran kepengurusan Opmawa baru, dan pendaftaran posisi keanggotaan. Sedangkan jika \textit{login} sebagai anggota Legislatif, maka mendapatkan menu tambahan untuk melihat program studi dari Lembaga Eksekutif untuk memberikan penilaian.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{gambar/interface_anggota}
+	\caption{ Tampilan Keanggotaan Sistem Informasi Manajemen Program Kerja}
+	\label{Tampilan_Anggota}
+\end{figure}
+
+Pada halaman keanggotaan, pengguna dapat melihat daftar anggota Opmawa yang terdaftar. Pengguna juga dapat melihat daftar anggota pada periode kepengurusan yang berbeda. Namun untuk mengelola keanggotaan, hanya ketua dari masing-masing lembaga yang dapat menambahkannya.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{gambar/interface_proker}
+	\caption{ Tampilan Daftar Proker Sistem Informasi Manajemen Program Kerja}
+	\label{Tampilan_Proker}
+\end{figure}
+
+Sama hal nya dengan halaman keanggotaan. Pada halaman daftar program kerja, pengguna dapat melihat daftar program kerja yang telah terdaftar oleh ketua dari masing-masing lembaga. Selain melihat data dari program kerja pada periode kepengurusan yang sama, pengguna juga dapat melihat informasi mengenai data dari program kerja periode sebelumnya untuk melakukan studi banding jika akan mengadakan program kerja yang sama pada tahun-tahun berikutnya.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{gambar/interface_detail}
+	\caption{ Tampilan Detail Proker Sistem Informasi Manajemen Program Kerja}
+	\label{Tampilan_Detail}
+\end{figure}
+
+Halaman detail program kerja memberikan opsional untuk mengelola informasi mengenai program kerja. Pengguna dapat mengelola penugasan, kepanitiaan, pemberkasan, dan keuangan pada program kerja. Pengguna juga dapat melihat tanggal pelaksanaan, penilaian yang diberikan oleh Lembaga Legislatif, dan status pelaksanaanya. Untuk mengelola penugasan dan kepanitiaan, Pengguna diharuskan untuk mendaftarkan posisi kepanitiaan terlebih dahulu. Selanjutnya mendaftarkan anggota kepanitiaan berdasarkan keanggotaan Opmawa dan posisi kepanitiaan yang telah didaftarkan sebelumnya. Terakhir, pengguna dapat menambahkan penugasan / catatan mengenai hal-hal yang diperlukan dalam pelaksanaan program kerja. Pengguna juga dapat memberikan penugasan kepada anggota kepanitiaan yang telah ditentukan sebagai penanggung jawab terhadap tugas tersebut.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{gambar/interface_berkas}
+	\caption{ Tampilan Pemberkasan Sistem Informasi Manajemen Program Kerja}
+	\label{Tampilan_Berkas}
+\end{figure}
+
+Pada halaman pemberkasan, terdapat 2 jenis \textit{file} yang dapat di \textit{upload} yaitu \textit{file} umum dan \textit{file} Lembar Pertanggung Jawaban (LPJ). Setiap \textit{file} yang di upload akan mendapatkan keterangan kategori berkas (program kerja atau umum), tanggal dan waktu file ter-\textit{upload}, dan anggota yang meng-\textit{upload} berkas tersebut. Pengguna juga dapat men-\textit{download} file yang telah ter-\textit{upload} untuk di simpan sendiri. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{gambar/interface_keuangan}
+	\caption{ Tampilan Keuangan Sistem Informasi Manajemen Program Kerja}
+	\label{Tampilan_Keuangan}
+\end{figure}
+
+Pada halaman keuangan juga terdapat kategori sama seperti pemberkasan. Halaman ini hanya dapat di kelola oleh bendahara dari masing-masing lembaga. Pada halaman ini terdapat informasi mengenai pemasukan dan pengeluaran beserta selisih dari keduanya. Pengguna juga dapat menambahkan bukti pemasukan atau pengeluaran sebagai opsional apabila ingin menambahkan pemasukan atau pengeluaran. Pada halaman ini terdapat grafik mengenai pemasukan dan pengeluaran dari setiap program kerja yang terdaftar.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{gambar/interface_rapat}
+	\caption{ Tampilan Jadwal Rapat Sistem Informasi Manajemen Program Kerja}
+	\label{Tampilan_Rapat}
+\end{figure}
+
+Pada tampilan rapat, pengguna akan diberikan informasi mengenai tanggal, deskripsi, dan waktu yang tersisa untuk mengadakan agenda rapat. Jika tangggal yang telah ditentukan terlewati, maka pengguna dapat mengisi evaluasi atau catatan-catatan dari rapat yang telah dilakukan pada tanggal yang telah terlewati tersebut.
+
+\subsection{Implementasi \textit{Back-End} Sistem}
+
+Untuk mengimplementasikan seluruh fungsi yang terdapat pada sistem, penulis menggunakan PHP versi 7.3.2 yang dikembangkan dengan \textit{framework} Codeigniter pada versi 3.1.10. Pada \textit{framework} Codeigniter yang menggunakan arsitektur MVC, proses pengimplementasian \textit{back-end} terjadi pada \textit{model} (penghubungkan sistem dengan \textit{database}), \textit{controller} (mengatur jalannya sistem sekaligus sebagai jembatan antara \textit{model} dan \textit{view}), dan view (bagian yang menjadi \textit{interface} antara sistem dengan pengguna). 
